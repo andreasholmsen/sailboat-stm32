@@ -1,0 +1,56 @@
+# -----------------------------------------------------------------------------
+# Keil uVision / MDK-ARM project
+# -----------------------------------------------------------------------------
+
+# Keil user-specific workspace/UI files
+*.uvguix.*
+*.uvguix
+*.uvgui.*
+
+# Build output directories
+Objects/
+Listings/
+
+# Compiled object files and dependencies
+*.o
+*.d
+
+# Keil output images and logs
+*.axf
+*.htm
+*.html
+*.lnp
+*.map
+*.dep
+*.iex
+*.build_log.htm
+
+# Event recorder and misc
+EventRecorderStub.scvd
+ReClock.ini
+
+# -----------------------------------------------------------------------------
+# RTE auto-generated files
+# -----------------------------------------------------------------------------
+RTE/_Reel/RTE_Components.h
+RTE/_Simulation/RTE_Components.h
+
+# Keep Device configuration but ignore base-version backups
+RTE/**/RTE_Device.h.base@*
+RTE/**/system_*.c.base@*
+RTE/**/startup_*.s.base@*
+RTE/**/.dbgconf.base@*
+
+# -----------------------------------------------------------------------------
+# IDE / OS stuff
+# -----------------------------------------------------------------------------
+# Windows
+Thumbs.db
+desktop.ini
+
+# VSCode (if you ever use it)
+.vscode/
+
+# Temporary files
+*.bak
+*.tmp

@@ -12,7 +12,7 @@ char val ;
 int counter = 0;
 void update(void) {
 	counter = (counter +1)%20;
-	update_duty_cycle();
+	//update_duty_cycle();
 	if (!counter) UpdateNavigation();
 }
 
@@ -25,12 +25,11 @@ int main ( void )
 	// Enable AFIO
 	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
 
-	InitGirouette(1);
+	//InitGirouette(1);
 	InitNavigation();
 	
-	
 	//Setup update cycle
-	InitTimer(TIM3, 35999, 0);
+	InitTimer(TIM3, 1439, 999);
 	StartTimer(TIM3);
 
 	while (1)

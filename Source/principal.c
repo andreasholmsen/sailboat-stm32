@@ -9,9 +9,11 @@
 uint8_t tim_num = 2;
 char val ;
 
-void update() {
+int counter = 0;
+void update(void) {
+	counter = (counter +1)%20;
 	update_duty_cycle();
-	UpdateNavigation();
+	if (!counter) UpdateNavigation();
 }
 
 
@@ -23,16 +25,16 @@ int main ( void )
 	// Enable AFIO
 	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
 
-	InitGirouette(0);
+	InitGirouette(1);
 	InitNavigation();
 	
 	
 	//Setup update cycle
-	InitTimer(TIM1, 3599, 9);
-	StartTimer(TIM1);
+	InitTimer(TIM3, 35999, 0);
+	StartTimer(TIM3);
 
 	while (1)
 	{
-		catch_UIF(TIM1, update);
+		catch_UIF(TIM3, update);
 	}
 }

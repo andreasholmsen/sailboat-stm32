@@ -24,7 +24,7 @@ void InitPWM(TIM_TypeDef* TIM, float duty_cycle, char CH) {
             TIM->CCMR2 |= (6 << 4); // PWM mode 1, OC3M bits 6:4
             TIM->CCMR2 |= TIM_CCMR2_OC3PE;
             TIM->CCER  |= TIM_CCER_CC3E;
-            TIM->CCR3 = (uint16_t)(TIM->ARR * duty_cycle);
+            TIM->CCR3 = (uint16_t)((float) TIM->ARR * duty_cycle);
             break;
         case 4:
             TIM->CCMR2 &= ~(7 << 12);

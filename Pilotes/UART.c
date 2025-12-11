@@ -19,19 +19,17 @@ USART3:
 void InitUSART(USART_TypeDef *USART, const uint32_t baudRate) {
     // 1. Enable clocks
     if (USART == USART1) {
-        RCC->APB2ENR |= RCC_APB2ENR_USART1EN | RCC_APB2ENR_IOPAEN;
+        RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
     } else if (USART == USART2) {
         RCC->APB1ENR |= RCC_APB1ENR_USART2EN;
-        RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
     } else if (USART == USART3) {
         RCC->APB1ENR |= RCC_APB1ENR_USART3EN;
-        RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
     }
 
     // 3. Set baud rate (assuming 72MHz PCLK for USART1, 36MHz for USART2/3)
     int freq = 72000000;
 		if (USART==USART1) USART->BRR = freq/baudRate;
-		else USART->BRR = freq/baudRate/2;
+		else USART->BRR = (freq/2)/baudRate;
 
     // 4. Enable USART, TX, RX
     USART->CR1 |= USART_CR1_UE | USART_CR1_TE | USART_CR1_RE;

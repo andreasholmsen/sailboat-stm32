@@ -5,8 +5,13 @@ signed char USART3Input;
 float rapportCyclique;
 
 //Handler for USART3. Fetches USART3 value
- void readUART3Handler(void) {
-	USART3Input = readChar(USART3); // Read value from USART3
+void readUART3Handler(void) {
+    signed char val = readChar(USART3);
+    if (val >= -100 && val <= 100 && val !=13) { // Acceptable range
+        USART3Input = val;
+    }
+		
+    // Optionally ignore or handle other values
 }
 
 //Takes "USART3Input" and updates direction
@@ -34,7 +39,7 @@ void InitNavigation(void) {
 	InitUSART(USART3, 9600); // USART3 setup
 	InitUSARTInterruption(USART3, readUART3Handler, 3); // Bind the readUART3Handler, priority 1
 	
-	InitTimer(TIM1, 359, 9); // setup TIM1 20kHz
+	InitTimer(TIM1, 3599, 0); // ~100kHz if timer clock is 72000000 Hz
 	InitPWM(TIM1, 0.0, 1); // PWM setup: TIM1, RapportCyqlique = 0.0 and on channel 1
 	StartTimer(TIM1); // Start the timer
 };

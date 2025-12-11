@@ -41,7 +41,7 @@ float watched_duty = 0.0;
  */
 float compute_duty_cycle(TIM_TypeDef *ENCODER){
 	uint32_t temp = ENCODER->CNT;
-	float encoder_value = temp / 4.0;
+	float encoder_value = temp / 4.0f;
 	float conversion = 0.0;
 		
 	if(45 <= encoder_value && encoder_value <=180){
@@ -75,7 +75,7 @@ void update_duty_cycle(void){
 void setup_weather_vane(){
 		// TIM SETUP
 		InitTimer(PWM_TIM, PWM_ARR, PWM_PSC);
-        InitTimer(ENCODER_TIM, MAX_ENCODER_VALUE, 0);
+    InitTimer(ENCODER_TIM, MAX_ENCODER_VALUE, 0);
 					
 		// PERIPH SETUP
 		setup_encoder(ENCODER_TIM);

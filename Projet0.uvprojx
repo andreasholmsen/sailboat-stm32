@@ -394,6 +394,11 @@
               <FileType>1</FileType>
               <FilePath>.\Source\Navigation.c</FilePath>
             </File>
+            <File>
+              <FileName>weather-vane.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\weather-vane.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -826,6 +831,11 @@
               <FileName>Navigation.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Source\Navigation.c</FilePath>
+            </File>
+            <File>
+              <FileName>weather-vane.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Source\weather-vane.c</FilePath>
             </File>
           </Files>
         </Group>

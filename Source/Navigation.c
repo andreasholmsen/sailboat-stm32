@@ -37,10 +37,4 @@ void InitNavigation(void) {
 	InitTimer(TIM1, 359, 9); // setup TIM1 20kHz
 	InitPWM(TIM1, 0.0, 1); // PWM setup: TIM1, RapportCyqlique = 0.0 and on channel 1
 	StartTimer(TIM1); // Start the timer
-	
-	//Setup timer for update_direction interval
-	InitTimer(TIM3, 1999, 7199); // Setup TIM3, 200ms
-	StartTimer(TIM3);
-	InitTimerInterruption(TIM3, UpdateNavigation, 1); // binds timer interval to update_direction
-
 };
